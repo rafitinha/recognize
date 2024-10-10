@@ -29,7 +29,7 @@ const loadLabels = () => {
       const descriptions = [];
       for (let i = 1; i <= 3; i++) {
         const img = await faceapi.fetchImage(
-          `./../assets/lib/face-api/labels/${label}/${i}.jpeg`
+          `./assets/lib/face-api/labels/${label}/${i}.jpeg`
         );
         const detections = await faceapi
           .detectSingleFace(img)
@@ -43,14 +43,12 @@ const loadLabels = () => {
 };
 
 Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri("./../assets/lib/face-api/models"),
-  faceapi.nets.faceLandmark68Net.loadFromUri("./../assets/lib/face-api/models"),
-  faceapi.nets.faceRecognitionNet.loadFromUri(
-    "./../assets/lib/face-api/models"
-  ),
-  faceapi.nets.faceExpressionNet.loadFromUri("./../assets/lib/face-api/models"),
-  faceapi.nets.ageGenderNet.loadFromUri("./../assets/lib/face-api/models"),
-  faceapi.nets.ssdMobilenetv1.loadFromUri("./../assets/lib/face-api/models"),
+  faceapi.nets.tinyFaceDetector.loadFromUri("./assets/lib/face-api/models"),
+  faceapi.nets.faceLandmark68Net.loadFromUri("./assets/lib/face-api/models"),
+  faceapi.nets.faceRecognitionNet.loadFromUri("./assets/lib/face-api/models"),
+  faceapi.nets.faceExpressionNet.loadFromUri("./assets/lib/face-api/models"),
+  faceapi.nets.ageGenderNet.loadFromUri("./assets/lib/face-api/models"),
+  faceapi.nets.ssdMobilenetv1.loadFromUri("./assets/lib/face-api/models"),
 ]).then(startVideo);
 
 cam.addEventListener("play", async () => {
